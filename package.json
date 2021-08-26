@@ -1,0 +1,20 @@
+{
+  "name": "day1",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.2.6",
+    "axios": "^0.21.1",
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.2",
+    "@vue/compiler-sfc": "^3.0.4",
+    "babel-plugin-import": "^1.13.3",
+    "sass": "^1.38.1",
+    "vite": "^1.0.0-rc.13"
+  }
+}
