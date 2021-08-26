@@ -9,9 +9,6 @@ import BasicLayout from "./layout/basic-layout.vue";
 
 export default {
   name: "App",
-  components: { BasicLayout },
-  setup() {
-    return {};
-  },
+  components: { BasicLayout }
 };
 </script>
