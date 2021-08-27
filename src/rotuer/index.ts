@@ -1,9 +1,11 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router"
+import "../vue"
 
 const routes: RouteRecordRaw[] = [{
     path: '/',
-    component: () => import("../views/home")
-}] 
+    name: "首页",
+    component: () => import("../views/home/index.vue")
+}]
 
 const router = createRouter({
     routes,
