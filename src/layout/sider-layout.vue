@@ -1,13 +1,12 @@
 <template>
   <div>
     <a-switch
+      style="margin: 10px"
       :checked="theme === 'dark'"
-      checked-children="Dark"
-      un-checked-children="Light"
+      checked-children="暗色调"
+      un-checked-children="亮色调"
       @change="changeTheme"
     />
-    <br />
-    <br />
     <a-menu
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
@@ -59,20 +58,18 @@ import {
   AppstoreOutlined,
   SettingOutlined,
 } from "@ant-design/icons-vue";
+import { theme, changeTheme } from "./scripts/theme";
 
 export default defineComponent({
   name: "sider-layout",
   setup() {
     const state = reactive({
-      theme: "dark",
       selectedKeys: ["1"],
       openKeys: ["sub1"],
     });
-    const changeTheme = (checked: boolean) => {
-      state.theme = checked ? "dark" : "light";
-    };
 
     return {
+      theme,
       ...toRefs(state),
       changeTheme,
     };
