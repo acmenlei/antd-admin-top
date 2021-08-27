@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios"
 import { errorMessage } from "../common/info"
 import { TIP } from "../common/tip"
+import { hideSpinning, showSpinning } from "../components/spin/scripts"
 
 /* http请求响应状态 */
 type HttpStatus = Promise<String | Error | AxiosResponse>
@@ -15,6 +16,7 @@ const instance: AxiosInstance = axios.create({
 
 /* 请求拦截 */
 instance.interceptors.request.use((AxiosRequestConfig: AxiosRequestConfig) => {
+    showSpinning() // 显示加载动画
     const headers = AxiosRequestConfig.headers
     if (!headers["admin-top-token"]) {
         headers["admin-top-token"] = "dsadhkjSDAdsafdsjlREWR3454dsfsljkjlasjdlka"
@@ -24,6 +26,7 @@ instance.interceptors.request.use((AxiosRequestConfig: AxiosRequestConfig) => {
     }
     return AxiosRequestConfig
 }, (reason) => {
+    hideSpinning() // 隐藏加载动画
     errorMessage(reason.message ? reason.message : TIP.NETWORK_ERROR)
     Promise.reject(new Error(reason))
 })
@@ -35,8 +38,10 @@ instance.interceptors.response.use((AxiosResponse: AxiosResponse) => {
     if (['/admin/login'].includes(url)) {
         /* 登录的时候拿到headers中需要的信息,设置token和operator */
     }
+    hideSpinning() // 隐藏加载动画
     return data
 }, (reason) => {
+    hideSpinning() // 隐藏加载动画
     errorMessage(reason.message ? reason.message : TIP.NETWORK_ERROR)
     Promise.reject(new Error(reason))
 })

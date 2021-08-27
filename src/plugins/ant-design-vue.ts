@@ -15,7 +15,8 @@ import {
     MenuItem,
     SubMenu,
     Button,
-    Switch
+    Switch,
+    Spin
 
 } from "ant-design-vue"
 
@@ -33,7 +34,8 @@ const __ANTD__ = [
     MenuItem,
     SubMenu,
     Button,
-    Switch
+    Switch,
+    Spin
 ]
 
 export default {
