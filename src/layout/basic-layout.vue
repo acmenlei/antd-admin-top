@@ -1,16 +1,18 @@
 <template>
   <a-layout>
-    <a-layout-header><layout-header /></a-layout-header>
+    <a-layout-header style="transition: background .4s;" :class="theme == 'light' && 'ligth-theme'">
+      <layout-header />
+    </a-layout-header>
     <a-layout>
       <a-layout-sider :theme="theme"><layout-sider /></a-layout-sider>
       <a-layout-content>
-        <!-- <a-breadcrumb style="margin: 16px">
-          <a-breadcrumb-item>Home</a-breadcrumb-item>
-          <a-breadcrumb-item>List</a-breadcrumb-item>
-          <a-breadcrumb-item>App</a-breadcrumb-item>
-        </a-breadcrumb> -->
+        <spin />
         <div style="height: 90vh">
-          <spin />
+          <a-breadcrumb style="margin: 16px">
+            <a-breadcrumb-item>Home</a-breadcrumb-item>
+            <a-breadcrumb-item>List</a-breadcrumb-item>
+            <a-breadcrumb-item>App</a-breadcrumb-item>
+          </a-breadcrumb>
         </div>
       </a-layout-content>
     </a-layout>
@@ -33,3 +35,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+  .ligth-theme {
+    background: #1991FF;
+  }
+</style>

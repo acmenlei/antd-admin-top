@@ -11,7 +11,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container-header {
   color: white;
   display: flex;
