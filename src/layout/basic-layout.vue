@@ -13,6 +13,7 @@
             <a-breadcrumb-item>List</a-breadcrumb-item>
             <a-breadcrumb-item>App</a-breadcrumb-item>
           </a-breadcrumb>
+          <router-view></router-view>
         </div>
       </a-layout-content>
     </a-layout>
