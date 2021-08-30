@@ -1,5 +1,9 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router"
-import "../vue"
+import "../vue.d"
+
+/* 路由拼装 */
+// const configuraRouters = (require as CustomeNodeRequire).context('/', true);
+// console.log(configuraRouters);
 
 const routes: RouteRecordRaw[] = [{
     path: '/',
