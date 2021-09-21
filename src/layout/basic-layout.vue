@@ -21,9 +21,9 @@
 </template>
 
 <script lang="ts">
-import LayoutHeader from "./header-layout.vue";
-import LayoutSider from "./sider-layout.vue";
-import Spin from "../components/spin/spin.vue";
+import LayoutHeader from "/@/layout/header-layout.vue";
+import LayoutSider from "/@/layout/sider-layout.vue";
+import Spin from "/@/components/spin/spin.vue";
 import { theme } from "./scripts/theme";
 
 export default {

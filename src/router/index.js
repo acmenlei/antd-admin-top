@@ -1,7 +1,7 @@
-import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router"
-import "../vue"
+import { createRouter, createWebHistory } from "vue-router"
+import "../vue.d"
 
-const routes: RouteRecordRaw[] = [{
+const routes = [{
     path: '/',
     name: "首页",
     component: () => import("../views/home/index.vue")
