@@ -1,12 +1,12 @@
 import Layout from "/@/layout/basic-layout.vue"
 
 export default {
-    name: '',
+    name: '工作台',
     path: '/home',
     meta: {
         onlyOne: false,
         code: 'home',
-        icon: ''
+        icon: 'index'
     },
     component: Layout,
     children: [
@@ -16,7 +16,7 @@ export default {
             meta: {
                 hidden: false,
                 code: 'home',
-                icon: ''
+                icon: 'index'
             },
             component: () => import('/@/views/home/index.vue')
         }

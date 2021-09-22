@@ -17,7 +17,6 @@ import {
     Button,
     Switch,
     Spin
-
 } from "ant-design-vue"
 
 const __ANTD__ = [

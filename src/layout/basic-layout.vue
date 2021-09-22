@@ -1,14 +1,17 @@
 <template>
   <a-layout>
-    <a-layout-header style="transition: background .4s;" :class="theme == 'light' && 'ligth-theme'">
+    <a-layout-header
+      style="transition: background 0.4s"
+      :class="theme == 'light' && 'ligth-theme'"
+    >
       <layout-header />
     </a-layout-header>
     <a-layout>
       <a-layout-sider :theme="theme"><layout-sider /></a-layout-sider>
       <a-layout-content>
         <spin />
-        <div style="height: 90vh">
-          <a-breadcrumb style="margin: 16px">
+        <div style="height: 90vh; margin: 16px">
+          <a-breadcrumb style="margin-bottom: 20px">
             <a-breadcrumb-item>Home</a-breadcrumb-item>
             <a-breadcrumb-item>List</a-breadcrumb-item>
             <a-breadcrumb-item>App</a-breadcrumb-item>
@@ -24,7 +27,7 @@
 import LayoutHeader from "/@/layout/header-layout.vue";
 import LayoutSider from "/@/layout/sider-layout.vue";
 import Spin from "/@/components/spin/spin.vue";
-import { theme } from "./scripts/theme";
+import { theme } from "/@/layout/scripts/theme";
 
 export default {
   name: "basic-layout",
@@ -37,7 +40,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .ligth-theme {
-    background: #1991FF;
-  }
+.ligth-theme {
+  background: #1991ff;
+}
 </style>
