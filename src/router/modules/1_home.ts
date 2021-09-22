@@ -1,10 +1,10 @@
-import Layout from "../../layout/index.vue"
+import Layout from "/@/layout/basic-layout.vue"
 
 export default {
     name: '',
-    path: '/',
+    path: '/home',
     meta: {
-        hidden: false,
+        onlyOne: false,
         code: 'home',
         icon: ''
     },
@@ -12,13 +12,13 @@ export default {
     children: [
         {
             name: 'home',
-            path: 'home',
+            path: '/',
             meta: {
                 hidden: false,
                 code: 'home',
                 icon: ''
             },
-            component: () => import('../../views/home/index.vue')
+            component: () => import('/@/views/home/index.vue')
         }
     ]
 }
