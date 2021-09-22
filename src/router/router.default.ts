@@ -10,7 +10,7 @@ export default [
         component: () => import("/@/views/login/index.vue")
     },
     {
-        path: "/*",
+        path: "/:pathMatch(.*)*", // 404配置
         name: "404",
         component: () => import("/@/views/404/404.vue")
     }

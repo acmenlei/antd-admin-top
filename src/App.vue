@@ -3,14 +3,7 @@
 </template>
 
 <script lang="ts">
-import { queryUserList } from "/@/api/user";
-
 export default {
-  name: "App",
-  setup() {
-    queryUserList().then((res) => {
-      console.log(res);
-    });
-  },
+  name: "App"
 };
 </script>
