@@ -4,14 +4,14 @@ export default {
     name: '工作台',
     path: '/home',
     meta: {
-        onlyOne: false,
-        code: 'home',
+        onlyOne: true,
+        code: 'work',
         icon: 'index'
     },
     component: Layout,
     children: [
         {
-            name: 'home',
+            name: '首页',
             path: '/',
             meta: {
                 hidden: false,

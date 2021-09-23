@@ -1,8 +1,7 @@
 export default [
     {
         path: '/',
-        redirect: '/home',
-        name: 'index'
+        redirect: '/home'
     },
     {
         path: "/login",

@@ -35,7 +35,7 @@ instance.interceptors.request.use((AxiosRequestConfig: AxiosRequestConfig) => {
 instance.interceptors.response.use((AxiosResponse: AxiosResponse) => {
     const { url } = AxiosResponse.config
     const { data, headers } = AxiosResponse
-    if (['/admin/login'].includes(url)) {
+    if (['/admin/login'].includes(url as string)) {
         /* 登录的时候拿到headers中需要的信息,设置token和operator */
     }
     hideSpinning() // 隐藏加载动画
