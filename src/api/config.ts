@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios"
+import { useToken, useUsername } from "/@/common/cookie";
 import { errorMessage } from "/@/common/info"
 import { TIP } from "/@/common/tip"
 import useLoading from "/@/components/spin/scripts"
@@ -6,10 +7,14 @@ import useLoading from "/@/components/spin/scripts"
 /* 加载动画 */
 const { hideSpinning, showSpinning } = useLoading();
 
-/* http请求响应状态 */
-type HttpStatus = Promise<String | Error | AxiosResponse>
+/* cookie相关缓存 */
+const { setToken, getToken } = useToken();
+const { setUsername, getUsername } = useUsername();
 
-const baseURL: string = "https://jsonplaceholder.typicode.com"
+/* http请求响应状态 */
+type HttpStatus = Promise<AxiosResponse>
+
+const baseURL: string = "http://localhost:3000"
 
 const instance: AxiosInstance = axios.create({
     baseURL,
@@ -21,11 +26,12 @@ const instance: AxiosInstance = axios.create({
 instance.interceptors.request.use((AxiosRequestConfig: AxiosRequestConfig) => {
     showSpinning() // 显示加载动画
     const headers = AxiosRequestConfig.headers
-    if (!headers["admin-top-token"]) {
-        headers["admin-top-token"] = "dsadhkjSDAdsafdsjlREWR3454dsfsljkjlasjdlka"
+    // 打印请求头
+    if (!headers["token"]) {
+        headers["token"] = getToken()
     }
-    if (!headers["admin-top-operator"]) {
-        headers["admin-top-operator"] = "xiongleixin"
+    if (!headers["username"]) {
+        headers["username"] = getUsername()
     }
     return AxiosRequestConfig
 }, (reason) => {
@@ -39,7 +45,9 @@ instance.interceptors.response.use((AxiosResponse: AxiosResponse) => {
     const { url } = AxiosResponse.config
     const { data, headers } = AxiosResponse
     if (['/admin/login'].includes(url as string)) {
-        /* 登录的时候拿到headers中需要的信息,设置token和operator */
+        /* 登录的时候拿到headers中需要的信息,设置token和username */
+        setToken(headers.token);
+        setUsername(headers.username);
     }
     hideSpinning() // 隐藏加载动画
     return data

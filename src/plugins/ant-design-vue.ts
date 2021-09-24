@@ -16,7 +16,10 @@ import {
     SubMenu,
     Button,
     Switch,
-    Spin
+    Spin,
+    Form,
+    FormItem,
+    InputPassword
 } from "ant-design-vue"
 
 const __ANTD__ = [
@@ -34,7 +37,10 @@ const __ANTD__ = [
     SubMenu,
     Button,
     Switch,
-    Spin
+    Spin,
+    Form,
+    FormItem,
+    InputPassword
 ]
 
 export default {
