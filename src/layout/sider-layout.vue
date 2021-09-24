@@ -47,8 +47,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from "vue";
-import { theme, changeTheme } from "/@/layout/scripts/theme";
+import { defineComponent } from "vue";
+import { useTheme } from "/@/layout/scripts";
 import { MenuRoutes } from "/@/router";
 import { routerPush } from "/@/router/scripts/router-trigger";
 import Icon from "/@/components/icon/index.vue";
@@ -57,11 +57,10 @@ export default defineComponent({
   name: "sider-layout",
   components: { Icon },
   setup() {
-    const state = reactive({});
-
+    // 主题相关逻辑
+    const { theme, changeTheme } = useTheme();
     return {
       theme,
-      ...toRefs(state),
       changeTheme,
       MenuRoutes,
       routerPush,

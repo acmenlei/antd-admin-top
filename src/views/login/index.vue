@@ -1,12 +1,19 @@
 <template>
   <div id="login">
-    login page
+    login
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { useUser } from "/@/views/login/scripts"
 export default {
-    name: 'login'
+  name: 'login',
+  setup() {
+    const { userLogin, userLogout } = useUser();
+    return {
+      userLogin, userLogout
+    }
+  }
 }
 </script>
 

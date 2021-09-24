@@ -5,11 +5,13 @@
 </template>
 
 <script lang="ts">
-import { spinning } from "./scripts";
+import useLoading from "./scripts";
 
 export default {
   name: "spin",
   setup() {
+    const { spinning } = useLoading();
+
     return {
       spinning,
     };

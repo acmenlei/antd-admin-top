@@ -1,7 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios"
-import { errorMessage } from "../common/info"
-import { TIP } from "../common/tip"
-import { hideSpinning, showSpinning } from "../components/spin/scripts"
+import { errorMessage } from "/@/common/info"
+import { TIP } from "/@/common/tip"
+import useLoading from "/@/components/spin/scripts"
+
+/* 加载动画 */
+const { hideSpinning, showSpinning } = useLoading();
 
 /* http请求响应状态 */
 type HttpStatus = Promise<String | Error | AxiosResponse>
