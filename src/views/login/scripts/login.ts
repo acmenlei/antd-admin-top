@@ -1,9 +1,14 @@
 import { login, logout } from "/@/api/user"
-import { reactive, UnwrapRef } from "vue";
-import { User } from "/@/types";
-import { Form } from "ant-design-vue";
-import { errorMessage, successMessage } from "/@/common/info";
-import { TIP } from "/@/common/tip";
+import { reactive, UnwrapRef } from "vue"
+import { User } from "/@/types"
+import { Form } from "ant-design-vue"
+import { errorMessage, successMessage } from "/@/common/info"
+import { TIP } from "/@/common/tip"
+import { routerPush } from "/@/router/scripts/router-trigger"
+import { useToken, useUsername } from "/@/common/cookie"
+/* 删除本地缓存信息 */
+const { removeToken } = useToken()
+const { removeUsername } = useUsername()
 
 const userInfo: UnwrapRef<User> = reactive({
     ll_username: null,
@@ -29,14 +34,17 @@ const userInfoRules = reactive({
     ]
 })
 /* 登陆校验规则 */
-const { resetFields, validate, validateInfos } = Form.useForm(userInfo, userInfoRules);
+const { resetFields, validate, validateInfos } = Form.useForm(userInfo, userInfoRules)
 /* 登陆逻辑 */
 async function userLogin() {
     try {
         await validate()
-        const data = await login(userInfo)
-        console.log(data);
-        return
+        const { code, msg }: any = await login(userInfo)
+        if (code === 200) {
+            successMessage(TIP.LOGIN_SUCCESS)
+            return routerPush("/")
+        }
+        errorMessage(msg)
     } catch {
         errorMessage(TIP.FORM_VALIDATE)
         resetFields()
@@ -44,8 +52,13 @@ async function userLogin() {
 }
 /* 退出登陆 */
 async function userLogout(username: string) {
-    const data: any = await logout({ ll_username: username })
-    return data.code === 200 ? successMessage(data.msg) : errorMessage(TIP.LOGOUT_ERROR)
+    const { code }: any = await logout({ ll_username: username });
+    if (code === 200) {
+        removeToken()
+        removeUsername()
+        successMessage(TIP.LOGOUT_SUCCESS)
+    }
+    errorMessage(TIP.LOGOUT_ERROR)
 }
 
 export {

@@ -19,7 +19,8 @@ import {
     Spin,
     Form,
     FormItem,
-    InputPassword
+    InputPassword,
+    Card
 } from "ant-design-vue"
 
 const __ANTD__ = [
@@ -40,7 +41,8 @@ const __ANTD__ = [
     Spin,
     Form,
     FormItem,
-    InputPassword
+    InputPassword,
+    Card
 ]
 
 export default {

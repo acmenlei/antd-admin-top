@@ -13,7 +13,6 @@
         <div v-if="item.meta.onlyOne">
           <a-menu-item
             v-for="(croute, j) of item.children"
-            v-show="!croute.meta.hidden"
             :key="j"
             @click.native="routerPush(croute.path)"
           >
@@ -46,6 +45,7 @@
     </a-menu>
   </div>
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useTheme } from "/@/layout/scripts";
