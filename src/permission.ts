@@ -1,9 +1,8 @@
 import router from "/@/router";
 import { useToken, useUsername } from "/@/common/cookie"
-import { adminVerify } from "./api/user";
-import { errorMessage } from "./common/info";
+import { adminVerify } from "/@/api/user";
+import { errorMessage } from "/@/common/info";
 import { TIP } from "/@/common/tip"
-import { useStore } from "vuex"
 import { adminLoginError } from "/@/store/scripts/store-operate"
 const { getToken } = useToken();
 const { getUsername } = useUsername();
@@ -11,16 +10,13 @@ const { getUsername } = useUsername();
 const WHITE_LIST: string[] = ['/login']; // 白名单
 
 router.beforeEach( async (to, from, next) => {
-    const store = useStore();
-    console.log(store);
-
     const { path, meta } = to
     const TOKEN = getToken(), USERNAME = getUsername();
     /**
      * 白名单校验
      */
     if (WHITE_LIST.includes(path)) {
-        if (TOKEN && USERNAME) return next('/')
+        if (TOKEN && USERNAME) return next('/home')
         else return next()
     } else {
         // PS:如果根目录 直接跳转到登录页（然后会走上边的登录页拦截 有token就回到home）
@@ -39,7 +35,7 @@ router.beforeEach( async (to, from, next) => {
                 return next({ ...from }) // 没有权限 从哪来回哪去
             } else {
                 errorMessage(msg);
-                adminLoginError();// 在vuex中删除cookie中存储的token username
+                adminLoginError(); // 在vuex中删除cookie中存储的token username
                 return next('/login');
             }
         } else {
