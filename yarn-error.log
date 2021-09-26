@@ -1,0 +1,47 @@
+Arguments: 
+  E:\Nodejs\node.exe C:\Users\75542\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add vuex@next --save
+
+PATH: 
+  E:\Git\mingw64\bin;E:\Git\usr\bin;C:\Users\75542\bin;C:\Program Files\Common Files\Oracle\Java\javapath;F:\app\oracleData\product\11.2.0\dbhome_1\bin;E:\;E:\jdk1.8.0_31\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\MongoDB\Server\4.2\bin;E:\Git\cmd;E:\tomcat\apache-tomcat-8.5.50\bin;E:\mysql-8.0.18-winx64\mysql-8.0.18-winx64\bin;E:\putty-64bit-0.73\date;E:\jdk1.8.0_31\jre\bin;E:\apache-maven-3.3.9\bin;E:\flutter\bin;E:\flutter\bin\cache\dart-sdk\bin;E:\Java_Jdk\sdk\platform-tools;E:\Java_Jdk\sdk\tools;E:\Nodejs;E:\Java_Jdk\sdk\emulator;E:\Python-2.7.18;E:\MinGW-w64\mingw32\bin;E:\redis;C:\Users\75542\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;E:\webstorm\WebStorm 2019.2.1\bin;E:\IntelliJ IDEA 2019.3.3\bin;C:\Users\75542\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.19.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'D:\coderlei-projecy\antd-admin-top\node_modules\_esbuild@0.8.57@esbuild\esbuild.exe'
+
+npm manifest: 
+  {
+    "name": "day1",
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build"
+    },
+    "dependencies": {
+      "ant-design-vue": "^2.2.6",
+      "axios": "^0.21.1",
+      "cookies-ts": "^1.0.5",
+      "vue": "^3.0.4",
+      "vue-router": "^4.0.11"
+    },
+    "devDependencies": {
+      "@types/node": "^16.7.6",
+      "@vue/compiler-sfc": "^3.0.4",
+      "babel-plugin-import": "^1.13.3",
+      "sass": "^1.38.1",
+      "vite": "^1.0.0-rc.13"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

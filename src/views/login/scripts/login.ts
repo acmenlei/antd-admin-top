@@ -1,14 +1,10 @@
-import { login, logout } from "/@/api/user"
+import { login } from "/@/api/user"
 import { reactive, UnwrapRef } from "vue"
 import { User } from "/@/types"
 import { Form } from "ant-design-vue"
 import { errorMessage, successMessage } from "/@/common/info"
 import { TIP } from "/@/common/tip"
 import { routerPush } from "/@/router/scripts/router-trigger"
-import { useToken, useUsername } from "/@/common/cookie"
-/* 删除本地缓存信息 */
-const { removeToken } = useToken()
-const { removeUsername } = useUsername()
 
 const userInfo: UnwrapRef<User> = reactive({
     ll_username: null,
@@ -50,20 +46,9 @@ async function userLogin() {
         resetFields()
     }
 }
-/* 退出登陆 */
-async function userLogout(username: string) {
-    const { code }: any = await logout({ ll_username: username });
-    if (code === 200) {
-        removeToken()
-        removeUsername()
-        successMessage(TIP.LOGOUT_SUCCESS)
-    }
-    errorMessage(TIP.LOGOUT_ERROR)
-}
 
 export {
     userLogin,
-    userLogout,
     userInfo,
     validateInfos
 }

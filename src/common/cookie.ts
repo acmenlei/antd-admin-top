@@ -37,5 +37,7 @@ export function useToken() {
 }
 /* 用户名相关存储 */
 export function useUsername() {
-    return { setUsername, getUsername, removeUsername }
+    return { 
+        setUsername, getUsername, removeUsername
+    }
 }

@@ -46,10 +46,9 @@ export default defineComponent({
   name: "login",
   components: { UserOutlined, LockOutlined },
   setup() {
-    const { userLogin, userLogout, userInfo, validateInfos } = useUser();
+    const { userLogin, userInfo, validateInfos } = useUser();
     return {
       userLogin,
-      userLogout,
       userInfo,
       validateInfos,
     };
