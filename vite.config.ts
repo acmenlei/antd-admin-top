@@ -1,6 +1,6 @@
 import { resolve } from "path";
 
-module.exports = {
+export default {
     alias: {
         "/@/": resolve(__dirname, "src")
     }
