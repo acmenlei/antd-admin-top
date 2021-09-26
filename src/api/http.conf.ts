@@ -3,6 +3,7 @@ import { useToken, useUsername } from "/@/common/cookie"
 import { errorMessage } from "/@/common/info"
 import { TIP } from "/@/common/tip"
 import useLoading from "/@/components/spin/scripts"
+import { ImportMeta } from "../types/modules/import-meta"
 
 /* 加载动画 */
 const { hideSpinning, showSpinning } = useLoading()
@@ -14,10 +15,8 @@ const { setUsername, getUsername } = useUsername()
 /* http请求响应状态 */
 type ResponseType = Promise<AxiosResponse>
 
-const baseURL: string = "http://localhost:3000"
-
 const instance: AxiosInstance = axios.create({
-    baseURL,
+    baseURL: (import.meta as ImportMeta).env.VITE_APP_BASE_URL,
     timeout: 5000,
     withCredentials: true
 })

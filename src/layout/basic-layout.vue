@@ -1,7 +1,7 @@
 <template>
   <a-layout>
     <a-layout-header
-      style="transition: background 0.4s"
+      style="transition: background 0.2s"
       :class="theme == 'light' && 'ligth-theme'"
     >
       <layout-header />
