@@ -1,18 +1,18 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios"
-import { useToken, useUsername } from "/@/common/cookie";
+import { useToken, useUsername } from "/@/common/cookie"
 import { errorMessage } from "/@/common/info"
 import { TIP } from "/@/common/tip"
 import useLoading from "/@/components/spin/scripts"
 
 /* 加载动画 */
-const { hideSpinning, showSpinning } = useLoading();
+const { hideSpinning, showSpinning } = useLoading()
 
 /* cookie相关缓存 */
-const { setToken, getToken } = useToken();
-const { setUsername, getUsername } = useUsername();
+const { setToken, getToken } = useToken()
+const { setUsername, getUsername } = useUsername()
 
 /* http请求响应状态 */
-type HttpStatus = Promise<AxiosResponse>
+type ResponseType = Promise<AxiosResponse>
 
 const baseURL: string = "http://localhost:3000"
 
@@ -46,8 +46,8 @@ instance.interceptors.response.use((AxiosResponse: AxiosResponse) => {
     const { data, headers } = AxiosResponse
     if (['/admin/login'].includes(url as string)) {
         /* 登录的时候拿到headers中需要的信息,设置token和username */
-        setToken(headers.token);
-        setUsername(headers.username);
+        setToken(headers.token)
+        setUsername(headers.username)
     }
     hideSpinning() // 隐藏加载动画
     return data
@@ -63,7 +63,7 @@ instance.interceptors.response.use((AxiosResponse: AxiosResponse) => {
  * @param data post参数
  * @returns 返回promise
  */
-export function post(url: string, data: object = {}): HttpStatus {
+export function post(url: string, data: object = {}): ResponseType {
     return new Promise((resolve, reject) => {
         instance.post(url, data).then(
             response => {
@@ -84,7 +84,7 @@ export function post(url: string, data: object = {}): HttpStatus {
  * @param params get参数
  * @returns 返回promise
  */
-export function get(url: string, params: object = {}): HttpStatus {
+export function get(url: string, params: object = {}): ResponseType {
     return new Promise((resolve, reject) => {
         instance.get(url, params).then(
             response => {
