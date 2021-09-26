@@ -9,8 +9,7 @@
       "resolveJsonModule": true,
       "esModuleInterop": true,
       "lib": ["esnext", "dom"],
-      "types": ["vite/client"],
-  
+      // "types": ["vite/client"],
       // ++ 这里加上baseUrl 和 path即可 ++
       "baseUrl": "./",
       "paths": {
