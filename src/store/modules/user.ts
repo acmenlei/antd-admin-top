@@ -29,7 +29,6 @@ const user = {
             commit(SET_USERNAME, getUsername());
         },
         logOut({ commit }: any) {
-            console.log("enter");
             commit(REMOVE_TOKEN);
             commit(REMOVE_USERNAME);
             commit(SET_USERNAME, "");
