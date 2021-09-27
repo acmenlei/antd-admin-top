@@ -20,7 +20,8 @@ import {
     Form,
     FormItem,
     InputPassword,
-    Card
+    Card,
+    Popconfirm
 } from "ant-design-vue"
 
 const __ANTD__ = [
@@ -42,7 +43,8 @@ const __ANTD__ = [
     Form,
     FormItem,
     InputPassword,
-    Card
+    Card,
+    Popconfirm
 ]
 
 export default {

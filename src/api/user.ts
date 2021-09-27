@@ -7,10 +7,10 @@ export function login(data: User) {
     return post('/admin/login', data)
 }
 /* 管理员退出 */
-export function adminLogOut(data: User) {
+export function logOut(data: User) {
     return post("/admin/loginout", data);
 }
 /* 管理员身份验证 */
-export function adminVerify(data: MenuCode) {
+export function hasPermission(data: MenuCode) {
     return post("/admin/verify", data);
 }

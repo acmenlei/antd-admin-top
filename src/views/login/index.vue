@@ -2,8 +2,8 @@
   <div id="container">
     <a-card id="login">
       <a-form :model="userInfo">
-        <a-form-item><h2>AntdVue3后台管理系统解决方案</h2></a-form-item>
-        <a-form-item label="username" v-bind="validateInfos['ll_username']">
+        <a-form-item><h2>Vue3后台管理系统解决方案</h2></a-form-item>
+        <a-form-item v-bind="validateInfos['ll_username']">
           <a-input
             placeholder="please input your username..."
             v-model:value="userInfo.ll_username"
@@ -13,7 +13,7 @@
             </template>
           </a-input>
         </a-form-item>
-        <a-form-item label="password" v-bind="validateInfos['ll_password']">
+        <a-form-item v-bind="validateInfos['ll_password']">
           <a-input-password
             placeholder="please input your password..."
             v-model:value="userInfo.ll_password"
@@ -60,12 +60,17 @@ export default defineComponent({
 #container {
   width: 100%;
   height: 100vh;
-  // background: lightskyblue;
+  background: url(../../assets/images/background.jpg);
+  
+  background-size: 100% 100%;
   #login {
-    width: 400px;
+    width: 350px;
     margin: 0 auto;
     padding: 20px;
-    transform: translateY(50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>

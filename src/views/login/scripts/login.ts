@@ -1,10 +1,12 @@
-import { login } from "/@/api/user"
+import { login, logOut } from "/@/api/user"
 import { reactive, UnwrapRef } from "vue"
 import { User } from "/@/types"
 import { Form } from "ant-design-vue"
 import { errorMessage, successMessage } from "/@/common/info"
 import { TIP } from "/@/common/tip"
-import { routerPush } from "/@/router/scripts/router-trigger"
+import { routerPush, routerReplace } from "/@/router/scripts/router-trigger"
+import { adminLogOut } from "/@/store/scripts/store-operate"
+import { useUsername } from "/@/common/cookie"
 
 const userInfo: UnwrapRef<User> = reactive({
     ll_username: null,
@@ -14,18 +16,20 @@ const userInfo: UnwrapRef<User> = reactive({
 const userInfoRules = reactive({
     ll_username: [{
         required: true,
-        message: "please input your username!!!"
+        message: "Please input your username!"
     }, {
         max: 11,
-        min: 5
+        min: 5,
+        message: "A minimum of 5 and a maximum of 11!"
     }
     ],
     ll_password: [{
         required: true,
-        message: "please input your password!!!"
+        message: "Please input your password!"
     }, {
         max: 16,
-        min: 5
+        min: 5,
+        message: "A minimum of 5 and a maximum of 16!"
     }
     ]
 })
@@ -38,7 +42,7 @@ async function userLogin() {
         const { code, msg }: any = await login(userInfo)
         if (code === 200) {
             successMessage(TIP.LOGIN_SUCCESS)
-            return routerPush("/")
+            return routerPush("/home")
         }
         errorMessage(msg)
     } catch {
@@ -47,8 +51,21 @@ async function userLogin() {
     }
 }
 
+async function userLogOut() {
+    // PS: 不需要catch错误 拦截器已经处理了
+    const { getUsername } = useUsername();
+    const { code, msg }: any = await logOut({ ll_username: getUsername() });
+    if (code === 200) {
+        adminLogOut();
+        successMessage(msg);
+        return routerReplace("/login")
+    }
+    errorMessage(TIP.LOGOUT_ERROR)
+}
+
 export {
     userLogin,
+    userLogOut,
     userInfo,
     validateInfos
 }

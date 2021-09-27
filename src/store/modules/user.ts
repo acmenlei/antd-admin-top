@@ -1,8 +1,5 @@
 import { useToken, useUsername } from "/@/common/cookie"
-import { StateProps, User } from "/@/types"
-import { adminLogOut } from "/@/api/user"
-import { successMessage } from "/@/common/info"
-import { routerReplace } from "/@/router/scripts/router-trigger"
+import { StateProps } from "/@/types"
 
 const SET_TOKEN = 'SET_TOKEN',
     SET_USERNAME = 'SET_USERNAME',
@@ -13,7 +10,7 @@ const { getToken, removeToken } = useToken();
 const { getUsername, removeUsername } = useUsername();
 
 const user = {
-    namespace: true,
+    namespaced: true,
     state() {
         return {
             token: getToken() || "",
@@ -31,24 +28,12 @@ const user = {
             commit(SET_TOKEN, getToken());
             commit(SET_USERNAME, getUsername());
         },
-        logOut({ commit }: any, data: User) {
-            adminLogOut(data).then(resp => {
-                const { code, msg }: any = resp;
-                if (code === 200) {
-                    commit(REMOVE_TOKEN);
-                    commit(REMOVE_USERNAME);
-                    commit(SET_USERNAME, "");
-                    commit(SET_USERNAME, "");
-                    successMessage(msg);
-                    routerReplace('/login');
-                }
-            })
-        },
-        verifyFailed({ commit }: any) {
-            commit(REMOVE_TOKEN)
-            commit(REMOVE_USERNAME)
-            commit(SET_TOKEN, "")
-            commit(SET_USERNAME, "")
+        logOut({ commit }: any) {
+            console.log("enter");
+            commit(REMOVE_TOKEN);
+            commit(REMOVE_USERNAME);
+            commit(SET_USERNAME, "");
+            commit(SET_USERNAME, "");
         }
     },
     getters: {
