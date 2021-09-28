@@ -3,7 +3,7 @@ import { useToken, useUsername } from "/@/common/cookie"
 import { errorMessage } from "/@/common/info"
 import { TIP } from "/@/common/tip"
 import useLoading from "/@/components/spin/scripts"
-import { ImportMeta } from "../types/modules/import-meta"
+import { ImportMeta } from "/@/types"
 
 /* 加载动画 */
 const { hideSpinning, showSpinning } = useLoading()
