@@ -1,4 +1,4 @@
-import { login, logOut } from "/@/api/user"
+import { login, logOut } from "/@/api/modules/user"
 import { reactive, UnwrapRef } from "vue"
 import { User } from "/@/types"
 import { Form } from "ant-design-vue"

@@ -1,12 +1,22 @@
 <template>
-  <div id="article-list">文章列表</div>
+  <a-card id="article-list">
+    <a-table bordered :data-source="list" :columns="columns">
+     
+    </a-table>
+  </a-card>
 </template>
 
 <script lang="ts">
+import { initArticle, articleState } from "./scripts";
+import { toRefs } from "vue";
+
 export default {
   name: "article-list",
   setup() {
-    return {};
+    initArticle();
+    return {
+      ...toRefs(articleState),
+    };
   },
 };
 </script>

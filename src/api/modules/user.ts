@@ -1,5 +1,5 @@
 import { User } from '/@/types'
-import { post } from './http.conf'
+import { post } from '../http.conf'
 import { MenuCode } from '/@/types';
 
 /* 管理员登陆 */

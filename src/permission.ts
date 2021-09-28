@@ -1,6 +1,6 @@
 import router from "/@/router";
 import { useToken, useUsername } from "/@/common/cookie"
-import { hasPermission } from "/@/api/user";
+import { hasPermission } from "/@/api/modules/user";
 import { errorMessage } from "/@/common/info";
 import { TIP } from "/@/common/tip"
 import { adminLogOut } from "/@/store/scripts/store-operate"
