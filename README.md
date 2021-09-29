@@ -13,6 +13,7 @@
 | plugins        | 项目使用到的插件                       |
 | router         | 路由文件配置&路由操作&路由守卫         |
 | router/modules | 路由模块,编写对应路由相关配置          |
+| types          | 接口类型文件          |
 | views          | 主要的页面文件                         |
 | views/scripts  | 对应页面相关的ts逻辑, 详情查看对应文件 |
 | vite.config.ts | vite相关配置                           |
